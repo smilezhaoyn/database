@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    
+/*
+
+安装
+
+项目初始化
+
+npm init -y
+安装 Koa
+
+npm i koa -S   (--save)
+安装 koa-router //才能写接口
+
+npm install koa-router -S
+新建一个app.js
+
+//引入 Koa
+const Koa = require('koa');
+const app = new Koa();
+//引入中间件
+const router = require('koa-router')();
+//引入静态文件
+const static = require('koa-static')
+//引入path
+const path = require('path');
+
+//没有默认文件时候   可以这样写
+app.use(async(ctx)=>{
+    // ctx.body="啊啊";
+    // ctx.request  //接收前端客户发送的请求   
+    //ctx.request.query  =>  {key:val}
+    //ctx.request.querystring => URL地址  key=val&key=val (不包括问号)
+    
+    //输出东西
+    ctx.response.body ={
+        a:'10',
+        b:'454'
+    }
+})
+
+两种方法：
+1.router.get('/',async(ctx)=>{
+        //这个里边放get请求的逻辑
+})
+
+2.//这个是在一个单独的文件里边写的get请求的逻辑，而这里引用一下
+router.get('/',require('./routers/api'))
+
+
+//使用static中间件，并且设置默认静态文件得目录
+app.use(static(
+    path.join(__dirname,'www')
+))
+//调用一下中间件
+app.use(router.routes());  
+app.listen(80);
+console.log('启动成功')
+
+
+
+
+Mongoose里一切始于 Schema 是建模，定义一类数据的格式
+
+
+//磨具  Schema  对象中定义类型
+
+// new mongoose.Schema({
+        //数据的名字 : 数据的类型 
+// })
+
+let schema = new mongoose.Schema({
+      
+})
+
+//建数据一个大名字  kitten   第二个参数你是的建模
+let kitten = mongoose.model('kitten',schema);  
+
+*/ 
+    
+    
+</script> 
+</body>
+</html>
